@@ -6,7 +6,7 @@
 - PHP 7.1 or higher
 - [Composer](https://getcomposer.org/download) dependency manager
 - Read our [testing instructions](https://developers.mercadopago.com/en/guides/payments/api/testing)
-- Set-up your Credentials: 
+- Setup your credentials: 
   - Public Key on client-side [`index.js`](https://github.com/mercadopago/card-payment-sample/tree/master/client/js/index.js#L2)
   - Private Access Token on server-side [`server.php`](https://github.com/mercadopago/card-payment-sample/tree/master/server/php/server.php#L6)
 
