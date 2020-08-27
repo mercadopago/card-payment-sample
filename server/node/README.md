@@ -6,8 +6,8 @@
 - Node v10 or higher
 - Read our [testing instructions](https://developers.mercadopago.com/en/guides/payments/api/testing)
 - Set-up your Credentials: 
-  - Public Key on client-side [`index.js`](https://github.com/mercadopago/card-payment-sample/client/js/index.js#L2)
-  - Private Access Token on server-side [`server.js`](https://github.com/mercadopago/card-payment-sample/server/node/server.js#L6)
+  - Public Key on client-side [`index.js`](https://github.com/mercadopago/card-payment-sample/tree/master/client/js/index.js#L2)
+  - Private Access Token on server-side [`server.js`](https://github.com/mercadopago/card-payment-sample/tree/master/server/node/server.js#L6)
 
 ### How to run it
 - npm install
