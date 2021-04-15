@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mercadopago = require("mercadopago");
 
-//REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
+//REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://www.mercadopago.com/developers/panel
 mercadopago.configurations.setAccessToken("YOUR_ACCESS_TOKEN");
 
 app.use(express.urlencoded({ extended: false }));
@@ -21,12 +21,12 @@ app.post("/process_payment", (req, res) => {
     description: req.body.description,
     installments: Number(req.body.installments),
     payment_method_id: req.body.paymentMethodId,
-    issuer_id: req.body.issuer,
+    issuer_id: req.body.issuerId,
     payer: {
-      email: req.body.email,
+      email: req.body.payer.email,
       identification: {
-        type: req.body.docType,
-        number: req.body.docNumber
+        type: req.body.payer.identification.docType,
+        number: req.body.payer.identification.docNumber
       }
     }
   };
@@ -35,12 +35,12 @@ app.post("/process_payment", (req, res) => {
     .then(function(response) {
       res.status(response.status).json({
         status: response.body.status,
-        status_detail: response.body.status_detail,
+        message: response.body.status_detail,
         id: response.body.id
       });
     })
     .catch(function(error) {
-      res.status(response.status).send(error);
+      res.status(error.status).send(error);
     });
 });
 

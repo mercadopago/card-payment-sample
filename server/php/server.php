@@ -2,7 +2,7 @@
 
 require __DIR__  . '/vendor/autoload.php';
 
-//REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
+//REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://www.mercadopago.com/developers/panel
 MercadoPago\SDK::setAccessToken("YOUR_ACCESS_TOKEN");
 
 $path = $_SERVER['REQUEST_URI'];
@@ -33,7 +33,7 @@ switch($path){
 
         $response = array(
             'status' => $payment->status,
-            'status_detail' => $payment->status_detail,
+            'message' => $payment->status_detail,
             'id' => $payment->id
         );
         echo json_encode($response);
