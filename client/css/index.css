@@ -161,7 +161,7 @@ main {
 }
 
 /* Card Payment Section - Start */
-.container_payment {
+.container__payment {
   display: none;
 }
 
@@ -295,12 +295,6 @@ main {
   cursor:pointer;
 }
 
-.input-background {
-  background-position: 98% 50%;
-  background-repeat: no-repeat;
-  background-color: #fff;
-}
-
 footer {
   padding: 2% 10% 6% 10%;
   margin: 0 auto;
@@ -391,4 +385,10 @@ footer p a:hover {
     margin: 0 0 0 0;
     position: absolute;
   }
+
+}
+
+/* Payment Result Section - Start */
+.container__result {
+  display: none;
 }

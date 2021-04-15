@@ -764,20 +764,21 @@
                 "reflection",
                 "static"
             ],
+            "abandoned": "roave/better-reflection",
             "time": "2020-03-27T11:06:43+00:00"
         },
         {
             "name": "mercadopago/dx-php",
-            "version": "2.0.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mercadopago/dx-php.git",
-                "reference": "83d9d35a002376b0a825967b96c20151bf49c061"
+                "reference": "2ea4d51f6b29d568b3a06d430114467fc2ab6b90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mercadopago/dx-php/zipball/83d9d35a002376b0a825967b96c20151bf49c061",
-                "reference": "83d9d35a002376b0a825967b96c20151bf49c061",
+                "url": "https://api.github.com/repos/mercadopago/dx-php/zipball/2ea4d51f6b29d568b3a06d430114467fc2ab6b90",
+                "reference": "2ea4d51f6b29d568b3a06d430114467fc2ab6b90",
                 "shasum": ""
             },
             "require": {
@@ -787,6 +788,7 @@
             },
             "require-dev": {
                 "doctrine/orm": "~2.3",
+                "phpdocumentor/phpdocumentor": "^2.0",
                 "phpmd/phpmd": "@stable",
                 "phpunit/phpunit": "^5",
                 "sebastian/phpcpd": "*",
@@ -822,8 +824,9 @@
                     "role": "Developer"
                 }
             ],
+            "description": "Mercado Pago PHP SDK",
             "homepage": "https://github.com/mercadopago/dx-php",
-            "time": "2020-04-06T17:33:16+00:00"
+            "time": "2020-11-13T21:50:52+00:00"
         }
     ],
     "packages-dev": [],
