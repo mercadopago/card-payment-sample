@@ -7,14 +7,14 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script type="text/javascript" src="js/index.js" defer></script>
   </head>
   <body>
     <main>
       <!-- Shopping Cart -->
       <section class="shopping-cart dark">
-        <div class="container" id="container">
+        <div class="container container__cart">
           <div class="block-heading">
             <h2>Shopping Cart</h2>
             <p>This is an example of a Mercado Pago integration</p>
@@ -62,7 +62,7 @@
       </section>
       <!-- Payment -->
       <section class="payment-form dark">
-        <div class="container_payment">
+        <div class="container__payment">
           <div class="block-heading">
             <h2>Card Payment</h2>
             <p>This is an example of a Mercado Pago integration</p>
@@ -77,65 +77,51 @@
               <div class="total">Total<span class="price" id="summary-total"></span></div>
             </div>
             <div class="payment-details">
-              <form action="/process_payment" method="post" id="paymentForm">
+              <form id="form-checkout">
                   <h3 class="title">Buyer Details</h3>
                   <div class="row">
                     <div class="form-group col">
-                      <label for="email">E-Mail</label>
-                      <input id="email" name="email" type="text" class="form-control"></select>
+                      <input id="form-checkout__cardholderEmail" name="cardholderEmail" type="email" class="form-control"/>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-sm-5">
-                      <label for="docType">Document Type</label>
-                      <select id="docType" name="docType" data-checkout="docType" type="text" class="form-control"></select>
+                      <select id="form-checkout__identificationType" name="identificationType" class="form-control"></select>
                     </div>
                     <div class="form-group col-sm-7">
-                      <label for="docNumber">Document Number</label>
-                      <input id="docNumber" name="docNumber" data-checkout="docNumber" type="text" class="form-control"/>
+                      <input id="form-checkout__identificationNumber" name="docNumber" type="text" class="form-control"/>
                     </div>
                   </div>
                   <br>
                   <h3 class="title">Card Details</h3>
                   <div class="row">
                     <div class="form-group col-sm-8">
-                      <label for="cardholderName">Card Holder</label>
-                      <input id="cardholderName" data-checkout="cardholderName" type="text" class="form-control">
+                      <input id="form-checkout__cardholderName" name="cardholderName" type="text" class="form-control"/>
                     </div>
                     <div class="form-group col-sm-4">
-                      <label for="">Expiration Date</label>
                       <div class="input-group expiration-date">
-                        <input type="text" class="form-control" placeholder="MM" id="cardExpirationMonth" data-checkout="cardExpirationMonth"
-                          onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
+                        <input id="form-checkout__cardExpirationMonth" name="cardExpirationMonth" type="text" class="form-control"/>
                         <span class="date-separator">/</span>
-                        <input type="text" class="form-control" placeholder="YY" id="cardExpirationYear" data-checkout="cardExpirationYear"
-                          onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
+                        <input id="form-checkout__cardExpirationYear" name="cardExpirationYear" type="text" class="form-control"/>
                       </div>
                     </div>
                     <div class="form-group col-sm-8">
-                      <label for="cardNumber">Card Number</label>
-                      <input type="text" class="form-control input-background" id="cardNumber" data-checkout="cardNumber"
-                        onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
+                      <input id="form-checkout__cardNumber" name="cardNumber" type="text" class="form-control"/>
                     </div>
                     <div class="form-group col-sm-4">
-                      <label for="securityCode">CVV</label>
-                      <input id="securityCode" data-checkout="securityCode" type="text" class="form-control"
-                        onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
+                      <input id="form-checkout__securityCode" name="securityCode" type="text" class="form-control"/>
                     </div>
                     <div id="issuerInput" class="form-group col-sm-12 hidden">
-                      <label for="issuer">Issuer</label>
-                      <select id="issuer" name="issuer" data-checkout="issuer" class="form-control"></select>
+                      <select id="form-checkout__issuer" name="issuer" class="form-control"></select>
                     </div>
                     <div class="form-group col-sm-12">
-                      <label for="installments">Installments</label>
-                      <select type="text" id="installments" name="installments" class="form-control"></select>
+                      <select id="form-checkout__installments" name="installments" type="text" class="form-control"></select>
                     </div>
                     <div class="form-group col-sm-12">
-                      <input type="hidden" name="transactionAmount" id="amount" value="10" />
-                      <input type="hidden" name="paymentMethodId" id="paymentMethodId" />
-                      <input type="hidden" name="description" id="description" />
+                      <input type="hidden" id="amount" />
+                      <input type="hidden" id="description" />
                       <br>
-                      <button type="submit" class="btn btn-primary btn-block">Pay</button>
+                      <button id="form-checkout__submit" type="submit" class="btn btn-primary btn-block">Pay</button>
                       <br>
                       <a id="go-back">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 10 10" class="chevron-left">
@@ -150,12 +136,39 @@
           </div>
         </div>
       </section>
+      <!-- Result -->
+      <section class="shopping-cart dark">
+        <div class="container container__result">
+          <div class="block-heading">
+            <h2>Payment Result</h2>
+            <p>This is an example of a Mercado Pago integration</p>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <div class="items product info product-details">
+                  <div class="row justify-content-md-center">
+                    <div class="col-md-4 product-detail">
+                      <div class="product-info">
+                        <br>
+                        <p><b>Status: </b><span id="payment-status"></span></p>
+                        <p><b>Detail: </b><span id="payment-detail"></span></p>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
       <div class="footer_logo"><img id="horizontal_logo" src="img/horizontal_logo.png"></div>
       <div class="footer_text">
         <p>Developers Site:</p>
-        <p><a href="https://developers.mercadopago.com">https://developers.mercadopago.com</p>
+        <p><a href="https://www.mercadopago.com/developers">https://www.mercadopago.com/developers</p>
       </div>
 		</footer>
   </body>
