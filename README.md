@@ -1,6 +1,6 @@
 # Card payment processing with Checkout API
 
-### This is a simple example of how you can accept credit card payments by integrating our [Checkout API](https://developers.mercadopago.com/en/guides/payments/api/introduction)
+### This is a simple example of how you can accept credit card payments by integrating our [Checkout API](https://www.mercadopago.com/developers/en/guides/payments/api/introduction)
 
 ### In this repository you will find two main folders:
 
@@ -18,4 +18,4 @@
 
 Clone or [download](https://github.com/mercadopago/card-payment-sample/archive/master.zip) this project, move to the server implementation of your choice and follow its README instructions.
 
-If you are programming in a different language, we offer a client-side sample which will allow you to write your own server-side implementation using our [API Reference](https://developers.mercadopago.com/en/reference/payments/_payments/post/) as a guideline.
+If you are programming in a different language, we offer a client-side sample which will allow you to write your own server-side implementation using our [API Reference](https://www.mercadopago.com/developers/en/reference/payments/_payments/post/) as a guideline.
