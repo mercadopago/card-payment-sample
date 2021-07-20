@@ -69,7 +69,7 @@ function loadCardForm() {
                     identificationNumber,
                     identificationType,
                 } = cardForm.getCardFormData();
-                fetch("http:/localhost:8080/process_payment", {
+                fetch("http://localhost:8080/process_payment", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
